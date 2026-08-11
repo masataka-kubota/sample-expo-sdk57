@@ -1,4 +1,4 @@
-import { ExpoConfig, ConfigContext } from 'expo/config';
+import { type ExpoConfig, type ConfigContext } from 'expo/config';
 
 import pkg from './package.json';
 
@@ -80,7 +80,7 @@ const config = ({ config }: ConfigContext): ExpoConfig => ({
     typedRoutes: true,
     reactCompiler: true,
   },
-  owner: "packerman1212",
+  owner: 'packerman1212',
   extra: {
     eas: {
       projectId: EAS_PROJECT_ID,
