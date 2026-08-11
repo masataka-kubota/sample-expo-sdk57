@@ -34,6 +34,9 @@ export const getVariantConfig = (): VariantConfig => {
 
 const variantConfig = getVariantConfig();
 
+/** EAS project ID — shared by `extra.eas.projectId` and EAS Update URL. */
+const EAS_PROJECT_ID = '96b331c1-fe43-4b2e-a744-0e64c0418e1d';
+
 const config = ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: variantConfig.appName,
@@ -76,6 +79,12 @@ const config = ({ config }: ConfigContext): ExpoConfig => ({
   experiments: {
     typedRoutes: true,
     reactCompiler: true,
+  },
+  owner: "packerman1212",
+  extra: {
+    eas: {
+      projectId: EAS_PROJECT_ID,
+    },
   },
 });
 
