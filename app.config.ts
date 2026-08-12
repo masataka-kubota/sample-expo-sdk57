@@ -26,10 +26,15 @@ const VARIANT_CONFIGS: Record<AppVariant, VariantConfig> = {
 
 /** Resolve the app configuration for the current environment variant. */
 export const getVariantConfig = (): VariantConfig => {
-  const variant = process.env.APP_VARIANT;
+  const variant = process.env.APP_VARIANT ?? process.env.EAS_BUILD_PROFILE ?? 'development';
   const isAppVariant = (v: string): v is AppVariant =>
     Object.prototype.hasOwnProperty.call(VARIANT_CONFIGS, v);
-  return variant && isAppVariant(variant) ? VARIANT_CONFIGS[variant] : VARIANT_CONFIGS.production;
+  if (!isAppVariant(variant)) {
+    throw new Error(
+      `Invalid APP_VARIANT "${variant}". Expected one of: ${Object.keys(VARIANT_CONFIGS).join(', ')}`,
+    );
+  }
+  return VARIANT_CONFIGS[variant];
 };
 
 const variantConfig = getVariantConfig();
