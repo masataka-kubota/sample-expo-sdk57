@@ -4,7 +4,7 @@ import native from 'oxlint-config-universe/native';
 export default defineConfig({
   extends: [native],
   plugins: ['jest'],
-  jsPlugins: [],
+  jsPlugins: ['eslint-plugin-testing-library'],
   rules: {
     // --- ESLint rules ---
     'eslint/no-unused-vars': 'error',
