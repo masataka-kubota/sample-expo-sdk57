@@ -9,7 +9,6 @@ const config: Config = {
   transformIgnorePatterns: [
     'node_modules/(?!(.bun|(jest-)?react-native|@react-native(-community)?|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg))',
   ],
-  collectCoverage: true,
   collectCoverageFrom: [
     '**/*.{ts,tsx,js,jsx}',
     '!**/coverage/**',
